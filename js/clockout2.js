@@ -2,6 +2,9 @@ $(document).ready(function () {
 
     $('.collapsible').collapsible();
 
+    const date = new Date();
+    $('#footer').html(`© ${date.getFullYear()} David Cai`)
+
     const calculateBtn = $('#calculateBtn');
 
     calculateBtn.click(() => calculate())
