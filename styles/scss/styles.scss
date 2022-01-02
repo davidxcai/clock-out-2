@@ -1,17 +1,29 @@
+@use 'color';
+@use 'variables';
+$light: rgb(250, 250, 250);
+$light-2: rgb(109, 109, 109);
+$dark: rgb(7, 7, 7);
+$grey: grey;
+
 body {
     //display flex and flex direction are important for footer as well as height
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin: 0;
-  }
-
-#mainContainer {
-    position: relative;
-    min-height: 100vh;
 }
 
-#contentWrap {
+.light-mode {
+    background-color: $light !important;
+    color: $dark;
+}
+
+.dark-mode {
+    background-color: $dark !important;
+    color: $light-2;
+}
+
+#mainContainer {
     width: 20rem;
     padding-bottom: 2.5rem;
 }
@@ -27,12 +39,16 @@ body {
 
 #clockOutDisplay {
     margin-top: 10px;
-    margin-bottom: 6rem;
 }
 
 #header {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+#mode {
+    cursor: pointer;
+    padding: 0.2rem;
 }
 
 #footer {

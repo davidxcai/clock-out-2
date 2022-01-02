@@ -1,3 +1,5 @@
+@use 'color';
+@use 'variables';
 body {
   display: flex;
   flex-direction: column;
@@ -5,12 +7,17 @@ body {
   margin: 0;
 }
 
-#mainContainer {
-  position: relative;
-  min-height: 100vh;
+.light-mode {
+  background-color: #fafafa !important;
+  color: #070707;
 }
 
-#contentWrap {
+.dark-mode {
+  background-color: #070707 !important;
+  color: #6d6d6d;
+}
+
+#mainContainer {
   width: 20rem;
   padding-bottom: 2.5rem;
 }
@@ -26,12 +33,16 @@ body {
 
 #clockOutDisplay {
   margin-top: 10px;
-  margin-bottom: 6rem;
 }
 
 #header {
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+#mode {
+  cursor: pointer;
+  padding: 0.2rem;
 }
 
 #footer {
