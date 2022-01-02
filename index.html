@@ -19,26 +19,26 @@
 </head>
 
 <body>
-    <div id="mainContainer">
-        <div class="container center-align" id="contentWrap">
+    <div id="mainContainer grey darken-4">
+        <div class="container center-align grey-text text-light-5" id="contentWrap">
             <h3 id="header">Clock-<i class="far fa-clock"></i>ut</h3>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="clockInHour" type="number" class="validate" max="24" min="0">
+                    <input id="clockInHour" inputmode="numeric" type="tel" maxlength="2" class="validate" pattern="\d*" />
                     <label for="hour_in">Hour In</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="clockInMinute" type="number" class="validate" min="0">
+                    <input id="clockInMinute" inputmode="numeric" type="tel" maxlength="2" class="validate" pattern="\d*" />
                     <label for="minute_in">Minute In</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="txHour" type="number" class="validate" min="0">
+                    <input id="txHour" inputmode="numeric" type="tel" maxlength="2" class="validate" pattern="\d*" />
                     <label for="tx_hour">Tx Hour</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="txMinute" type="number" class="validate" min="0">
+                    <input id="txMinute" inputmode="numeric" type="tel" maxlength="2" class="validate" pattern="\d*" />
                     <label for="tx_minute">Tx Minute</label>
                 </div>
             </div>
@@ -49,32 +49,34 @@
                         <h6>Lunch Time</h6>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="lunchHour" type="number" class="validate" min="0">
+                                <input id="lunchHour" inputmode="numeric" type="tel" maxlength="2" class="validate" min="0" pattern="\d*" />
                                 <label for="lunch_hour">Hour</label>
                             </div>
                             <div class="input-field col s6">
-                                <input value="30" id="lunchMinute" type="number" class="validate" min="0">
+                                <input value="30" id="lunchMinute" inputmode="numeric" type="tel" maxlength="2" class="validate" min="0"
+                                    pattern="\d*" />
                                 <label class="active" for="lunch_minute">Minute</label>
                             </div>
                         </div>
                         <h6>Meeting Time</h6>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="meetingHour" type="number" class="validate" min="0">
+                                <input id="meetingHour" inputmode="numeric" type="tel" maxlength="2" class="validate" min="0" pattern="\d*" />
                                 <label for="meeting_hour">Hour</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="meetingMinute" type="number" class="validate" min="0">
+                                <input id="meetingMinute" inputmode="numeric" type="tel" maxlength="2" class="validate" min="0" pattern="\d*" />
                                 <label for="meeting_minute">Minute</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="refusal" type="number" class="validate" min="0">
+                                <input id="refusal" inputmode="numeric" type="tel" class="validate" min="0" pattern="\d*" />
                                 <label for="refusal">Refusal Time</label>
                             </div>
                             <div class="input-field col s6">
-                                <input value="95" id="productivity" type="number" class="validate" min="0">
+                                <input value="95" id="productivity" inputmode="numeric" type="tel" class="validate" min="0"
+                                    pattern="\d*" />
                                 <label class="active" for="productivity">Productivity %</label>
                             </div>
                         </div>
@@ -92,9 +94,8 @@
 
             </div>
         </div>
-        <footer id="footer" class="center-align">
-        </footer>
     </div>
+    <footer id="footer"></footer>
 </body>
 
 </html>
