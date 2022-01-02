@@ -1,8 +1,5 @@
 $(document).ready(function () {
 
-    //check local storage if light/dark mode
-    
-
     $('.collapsible').collapsible();
 
     const modeBtn = $('#mode');
