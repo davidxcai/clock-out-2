@@ -89,27 +89,29 @@ $(document).ready(function () {
             time: Number($('#refusal').val()) || 0
         }
 
+        // Validate that clock in time and tx time is greater than zero
         if (validate(clockIn) && validate(tx)) {
-            if (refusal.time > 0) {
-                let refuse = {
-                    hour: Math.floor(refusal.time / 60),
-                    minute: Math.round(((refusal.time / 60) % 1) * 60)
-                }
-                tx.hour -= refuse.hour
-                if (refuse.minute > tx.minute) {
-                    tx.minute += 60 - refuse.minute;
-                    tx.hour--;
-                } else {
-                    tx.minute -= refuse.minute
-                }
-            }
 
             //Validates refusal time against tx time
-            if (refusal.time > tx.hour + tx.minute) {
+            if (refusal.time > ((tx.hour * 60) + tx.minute)) {
                 alert('Refusal time cannot be greather than tx time.')
             }
 
             else {
+                if (refusal.time > 0) {
+                    let refuse = {
+                        hour: Math.floor(refusal.time / 60),
+                        minute: Math.round(((refusal.time / 60) % 1) * 60)
+                    }
+                    tx.hour -= refuse.hour
+                    if (refuse.minute > tx.minute) {
+                        tx.minute += 60 - refuse.minute;
+                        tx.hour--;
+                    } else {
+                        tx.minute -= refuse.minute
+                    }
+                }
+
                 // hours and minutes converted to minutes
                 const workMinutes = (tx.hour * 60 + tx.minute);
 
@@ -137,12 +139,18 @@ $(document).ready(function () {
                     clockOut.hour -= 12;
                 }
 
-                $('#clockOutDisplay').html(`${clockOut.hour}:${clockOut.minute < 10 ? '0' + clockOut.minute : clockOut.minute}`);
+                $('#clockOutDisplay').text(`${clockOut.hour}:${clockOut.minute < 10 ? '0' + clockOut.minute : clockOut.minute}`);
             }
         } else {
-            alert('Please enter a valid time.')
+            if (validate(clockIn) !== true && validate(tx) !== true) {
+                alert('Please enter clock-in and tx time.')
+            }
+            else if (validate(clockIn) !== true) {
+                alert('Please enter clock-in time.')
+            }
+            else if (validate(tx) !== true) {
+                alert('Please enter tx time.')
+            }
         }
     }
-
 })
-
