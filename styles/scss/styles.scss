@@ -1,5 +1,3 @@
-@use 'color';
-@use 'variables';
 $light: rgb(250, 250, 250);
 $light-2: rgb(109, 109, 109);
 $dark: rgb(7, 7, 7);
@@ -11,50 +9,52 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
+
+    .light-mode {
+        background-color: $light !important;
+        color: $dark;
+    }
+
+    #header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        .fa-clock {
+            font-size: 40px;
+        }
+    }
+
+    #mainContainer {
+        width: 20rem;
+        padding-bottom: 2.5rem;
+
+        #calculateBtn {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        
+        #clockOutDisplay {
+            margin-top: 10px;
+        }
+    }
+
+    #footer {
+        //margin top pushes the footer down from the body
+        margin-top: auto;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 30px;
+    }
 }
 
-.light-mode {
-    background-color: $light !important;
-    color: $dark;
-}
-
+/*
 .dark-mode {
     background-color: $dark !important;
     color: $light-2;
-}
-
-#mainContainer {
-    width: 20rem;
-    padding-bottom: 2.5rem;
-}
-
-.fa-clock {
-    font-size: 40px;
-}
-
-#calculateBtn {
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-
-#clockOutDisplay {
-    margin-top: 10px;
-}
-
-#header {
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
 #mode {
     cursor: pointer;
     padding: 0.2rem;
 }
-
-#footer {
-    //margin top pushes the footer down from the body
-    margin-top: auto;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 30px;
-  }
+*/

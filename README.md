@@ -22,8 +22,4 @@ I created this app based on my need to meet a productivity standard at work and 
 - jQuery
 - Materialize
 
-git add -A
-
-git commit -m 'comment'
-
-git push -u -f origin master
+© David Cai

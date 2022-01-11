@@ -1,33 +1,14 @@
 $(document).ready(function () {
 
+    // Initialize materialize collapsible
     $('.collapsible').collapsible();
 
-    const modeBtn = $('#mode');
-
-    modeBtn.click(() => {
-        const body = $(document.body)
-        const collapse = $('.collapsible-header')
-        switch (modeBtn.html()) {
-            case 'light_mode':
-                body.removeClass();
-                body.addClass('light-mode');
-                collapse.removeClass('dark-mode');
-                collapse.addClass('light-mode');
-                modeBtn.html('dark_mode');
-                break;
-            case 'dark_mode':
-                body.removeClass();
-                body.addClass('dark-mode');
-                collapse.removeClass('light-mode');
-                collapse.addClass('dark-mode');
-                modeBtn.html('light_mode');
-                break;
-        }
-    })
-
+    // Footer with auto-update copyright year
     const date = new Date();
+    // const url = 'https://github.com/helloimdavidhaha/clock-out-2';
     $('#footer').html(`© ${date.getFullYear()} David Cai`);
 
+    // Prevent unwanted characters from being entered in form
     (function ($) {
         $.fn.inputFilter = function (inputFilter) {
             return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function () {
@@ -98,6 +79,7 @@ $(document).ready(function () {
             }
 
             else {
+                // Deduct total time if refusal time is greater than zero
                 if (refusal.time > 0) {
                     let refuse = {
                         hour: Math.floor(refusal.time / 60),
@@ -118,6 +100,9 @@ $(document).ready(function () {
                 // calculate facility time by calculating productivity rate of time
                 let totalMinutes = Math.round((workMinutes * 100) / productivity.rate);
 
+                console.log(totalMinutes);
+                console.log(workMinutes)
+
                 // check if lunch was taken and if it was, add the time to total minutes at facility
                 totalMinutes += (lunch.hour * 60 + lunch.minute);
 
@@ -131,7 +116,7 @@ $(document).ready(function () {
                     hour: clockIn.hour + totalTime.hour,
                     minute: clockIn.minute + totalTime.minute
                 }
-                if (clockOut.minute > 60) {
+                if (clockOut.minute > 60 || clockOut.minute === 60) {
                     clockOut.minute -= 60;
                     clockOut.hour += 1;
                 }

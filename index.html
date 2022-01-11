@@ -25,22 +25,50 @@
         <!--Clock in time-->
         <div class="row">
             <div class="input-field col s6">
-                <input id="clockInHour" inputmode="numeric" type="tel" maxlength="2" class="validate" pattern="\d*"/>
+                <input 
+                id="clockInHour" 
+                inputmode="numeric" 
+                type="tel" 
+                maxlength="2" 
+                class="validate" 
+                pattern="\d*"
+                autocomplete="off"/>
                 <label for="hour_in">Hour In</label>
             </div>
             <div class="input-field col s6">
-                <input id="clockInMinute" inputmode="numeric" type="tel" maxlength="2" class="validate fifty-nine" pattern="\d*" />
+                <input 
+                id="clockInMinute" 
+                inputmode="numeric" 
+                type="tel" 
+                maxlength="2" 
+                class="validate fifty-nine" 
+                pattern="\d*"
+                autocomplete="off"/>
                 <label for="minute_in">Minute In</label>
             </div>
         </div>
         <!--Working time-->
         <div class="row">
             <div class="input-field col s6">
-                <input id="txHour" inputmode="numeric" type="tel" maxlength="2" class="validate above-zero" pattern="\d*" />
+                <input 
+                id="txHour" 
+                inputmode="numeric" 
+                type="tel" 
+                maxlength="2" 
+                class="validate above-zero" 
+                pattern="\d*"
+                autocomplete="off"/>
                 <label for="tx_hour">Tx Hour</label>
             </div>
             <div class="input-field col s6">
-                <input id="txMinute" inputmode="numeric" type="tel" maxlength="2" class="validate" pattern="\d*" />
+                <input 
+                id="txMinute" 
+                inputmode="numeric" 
+                type="tel" 
+                maxlength="2" 
+                class="validate" 
+                pattern="\d*"
+                autocomplete="off"/>
                 <label for="tx_minute">Tx Minute</label>
             </div>
         </div>
@@ -71,19 +99,19 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="meetingHour" inputmode="numeric" type="tel" maxlength="2" class="validate above-zero"
-                                min="0" pattern="\d*" />
+                                min="0" pattern="\d*" autocomplete="off"/>
                             <label for="meeting_hour">Hour</label>
                         </div>
                         <div class="input-field col s6">
                             <input id="meetingMinute" inputmode="numeric" type="tel" maxlength="2" class="validate fifty-nine"
-                                min="0" pattern="\d*" />
+                                min="0" pattern="\d*" autocomplete="off"/>
                             <label for="meeting_minute">Minute</label>
                         </div>
                     </div>
                     <!--Refusal & Productivity-->
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="refusal" inputmode="numeric" type="tel" class="validate above-zero" min="0" pattern="\d*" />
+                            <input id="refusal" inputmode="numeric" type="tel" class="validate above-zero" min="0" pattern="\d*" autocomplete="off"/>
                             <label for="refusal">Refusal Min</label>
                         </div>
                         <div class="input-field col s6">
@@ -110,7 +138,7 @@
         </div>
     </div>
     <!--Footer-->
-    <footer id="footer" class="grey-text text-light-5"></footer>
+    <footer id="footer"></footer>
 </body>
 
 </html>

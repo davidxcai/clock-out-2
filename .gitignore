@@ -1,1 +1,29 @@
 ignore
+
+    const modeBtn = $('#mode');
+    modeBtn.click(() => {
+        const body = $(document.body)
+        const collapse = $('.collapsible-header')
+        switch (modeBtn.html()) {
+            case 'light_mode':
+                body.removeClass();
+                body.addClass('light-mode');
+                collapse.removeClass('dark-mode');
+                collapse.addClass('light-mode');
+                modeBtn.html('dark_mode');
+                break;
+            case 'dark_mode':
+                body.removeClass();
+                body.addClass('dark-mode');
+                collapse.removeClass('light-mode');
+                collapse.addClass('dark-mode');
+                modeBtn.html('light_mode');
+                break;
+        }
+    })
+
+git add -A
+
+git commit -m 'comment'
+
+git push -u -f origin master
