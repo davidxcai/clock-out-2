@@ -93,13 +93,13 @@ $(document).ready(function () {
         let id = $(this).id;
   
         // Use a regex that matches numbers between 0 and 59 or a single digit
-        // const regex = /^(?:[0-5]?[0-9])$/;
+        const regex = /^(?:[0-5]?[0-9])$/;
   
-        // // Check if the current value is valid
-        // if (!regex.test(currentValue)) {
-        //   // If not valid, truncate the value to the last valid state or clear if no valid state
-        //   $(this).val(currentValue.slice(0, 2).replace(/[^0-9]/g, ''));
-        // }
+        // Check if the current value is valid
+        if (!regex.test(currentValue)) {
+          // If not valid, truncate the value to the last valid state or clear if no valid state
+          $(this).val(currentValue.slice(0, 2).replace(/[^0-9]/g, ''));
+        }
   
         time.set(this);
         Validate(time.values);
