@@ -20,6 +20,6 @@ I created this app based on my need to meet a productivity standard at work and 
 - CSS
 - Javascript
 - jQuery
-- Materialize
+- Bootstrap
 
 © David Cai
