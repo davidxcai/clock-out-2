@@ -19,7 +19,7 @@ $(document).ready(function () {
         });
     };
   
-    //Filters
+    // Filters
     $("#ClockInHour").inputFilter(function (value) {
         return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 24);
     });
