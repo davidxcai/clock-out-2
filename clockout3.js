@@ -72,6 +72,8 @@ $(document).ready(function () {
               values.productivity = value / 100;
               break;
             case "AM":
+              values.ampm = input.value;
+              break;
             case "PM":
               values.ampm = input.value;
               break;
@@ -90,25 +92,30 @@ $(document).ready(function () {
   
       $(".input").on("input", function () {
         let currentValue = $(this).val();
-        let id = $(this).id;
   
         // Use a regex that matches numbers between 0 and 59 or a single digit
         const regex = /^(?:[0-5]?[0-9])$/;
   
         // Check if the current value is valid
+        console.log(typeof number === 'number');
         if (!regex.test(currentValue)) {
           // If not valid, truncate the value to the last valid state or clear if no valid state
           $(this).val(currentValue.slice(0, 2).replace(/[^0-9]/g, ''));
         }
-  
         time.set(this);
         Validate(time.values);
       });
+
+      $(".ampm").on("input", function () {
+        time.set(this);
+        Validate(time.values);
+      })
   
       // Validate time values to check if they are undefined
       const Validate = (input) => {
         if (input.clockIn.hour > 0 && input.productivity > 0) {
           if (input.working.hour > 0 || input.working.minute > 0) {
+
             calculateClockOutTime();
           } else {
             UpdateDisplay();
