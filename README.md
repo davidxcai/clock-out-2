@@ -1,6 +1,6 @@
 # Clock-Out App
 
-[Check it out!](https://helloimdavidhaha.github.io/clock-out-2/)
+[Check it out!](https://davidxcai.github.io/clock-out-2/)
 
 ## About
 
