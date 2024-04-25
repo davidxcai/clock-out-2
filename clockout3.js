@@ -97,7 +97,7 @@ $(document).ready(function () {
         const regex = /^(?:[0-5]?[0-9])$/;
   
         // Check if the current value is valid
-        if ($(this).hasClass('limit') {
+        if ($(this).hasClass('limit')) {
             if (!regex.test(currentValue)) {
               // If not valid, truncate the value to the last valid state or clear if no valid state
               $(this).val(currentValue.slice(0, 2).replace(/[^0-9]/g, ''));
