@@ -186,7 +186,7 @@ $(document).ready(function () {
   
         // Helper to format the time output
         const formatTime = ({ hour, minute, ampm, days }) => {
-          const formattedTime = `${hour}:${minute < 10 ? '0' : ''}${Math.abs(minute)} ${ampm}`;
+          const formattedTime = `${hour}:${minute < 10 ? '0' : ''}${minute} ${ampm}`;
           return days > 0 ? `${formattedTime} +${days} day(s)` : formattedTime;
         };
   
