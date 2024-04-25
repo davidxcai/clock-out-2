@@ -97,11 +97,10 @@ $(document).ready(function () {
         const regex = /^(?:[0-5]?[0-9])$/;
   
         // Check if the current value is valid
-        if ($(this).hasClass('limit')) {
-            if (!regex.test(currentValue)) {
-              // If not valid, truncate the value to the last valid state or clear if no valid state
-              $(this).val(currentValue.slice(0, 2).replace(/[^0-9]/g, ''));
-            }
+        console.log(typeof number === 'number');
+        if (!regex.test(currentValue)) {
+          // If not valid, truncate the value to the last valid state or clear if no valid state
+          $(this).val(currentValue.slice(0, 2).replace(/[^0-9]/g, ''));
         }
         time.set(this);
         Validate(time.values);
@@ -150,7 +149,7 @@ $(document).ready(function () {
       // Helper function to sum hours and minutes into only minutes and apply productivity percentage
       function calculateProductivity() {
         // Hours + minutes divided by productivity
-        const totalWorkingMinutes = ((time.values.working.hour * 60) + time.values.working.minute  - time.values.lost) / time.values.productivity;
+        const totalWorkingMinutes = ((time.values.working.hour * 60) + time.values.working.minute) / time.values.productivity;
   
         return {
           hour: Math.floor(totalWorkingMinutes / 60),
@@ -161,7 +160,7 @@ $(document).ready(function () {
       // Helper function to calculate clock-out time
       function calculateClockOut({ hour, minute }) {
         hour += time.values.clockIn.hour;
-        minute += time.values.clockIn.minute + time.values.lunch + time.values.meeting;
+        minute += time.values.clockIn.minute + time.values.lunch + time.values.meeting - time.values.lost;
   
         if (minute >= 60) {
           hour += Math.floor(minute / 60);
