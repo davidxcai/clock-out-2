@@ -55,12 +55,12 @@
             <div class="row">
                 <div class="form-floating col ">
                     <input type='number' id='WorkingHour' min='0' max='99' inputmode="numeric"
-                        class="form-control input" placeholder="" />
+                        class="form-control input limit" placeholder="" />
                     <label for="WorkingHour">Tx Hour</label>
                 </div>
                 <div class="form-floating col ">
                     <input type='number' id='WorkingMinute' min='0' max='59' maxlength="2" inputmode="numeric"
-                        class="form-control input minute" placeholder="" />
+                        class="form-control input minute limit" placeholder="" />
                     <label for="WorkingMinute">Tx Minute</label>
                 </div>
             </div>
@@ -89,26 +89,20 @@
                     <label for="Meeting">Meeting</label>
                 </div>
             </div>
-            <div class="row" style="margin-top: 30px;">
+            <div class="row" style="margin-top: 30px; margin-bottom: 30px;">
                 <!-- Lost Time Minute -->
                 <div class="form-floating col">
-                    <input type='number' id='LostTime' min='0' max='99' value='0' inputmode="numeric"
+                    <input type='number' id='LostTime' min='0' value='0' inputmode="numeric"
                         class="form-control input" placeholder="" />
                     <label for="LostTime">Lost Time</label>
                 </div>
                 <!-- Productivity -->
                 <div class="form-floating col">
-                    <input type='number' id='Productivity' min='0' max='999' value='95' inputmode="numeric"
+                    <input type='number' id='Productivity' min='0' value='95' inputmode="numeric"
                         class="form-control input" placeholder="" />
                     <label class="active" for="Productivity">Productivity %</label>
                 </div>
             </div>
-            <!-- Dark Mode Toggle -->
-            <p style="margin-top: 15px; margin-bottom: 0;">Dark Mode</p>
-            <div class="form-check form-switch">
-                <input id="DarkModeToggle" class="form-check-input " type="checkbox" role="switch"/>
-            </div>
-            <hr>
         </div>
         
         <div style="padding-top: 10px;">

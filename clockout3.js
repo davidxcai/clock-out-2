@@ -97,10 +97,11 @@ $(document).ready(function () {
         const regex = /^(?:[0-5]?[0-9])$/;
   
         // Check if the current value is valid
-        console.log(typeof number === 'number');
-        if (!regex.test(currentValue)) {
-          // If not valid, truncate the value to the last valid state or clear if no valid state
-          $(this).val(currentValue.slice(0, 2).replace(/[^0-9]/g, ''));
+        if ($(this).hasClass('limit')) {
+          if (!regex.test(currentValue)) {
+            // If not valid, truncate the value to the last valid state or clear if no valid state
+            $(this).val(currentValue.slice(0, 2).replace(/[^0-9]/g, ''));
+          }
         }
         time.set(this);
         Validate(time.values);
@@ -148,8 +149,10 @@ $(document).ready(function () {
   
       // Helper function to sum hours and minutes into only minutes and apply productivity percentage
       function calculateProductivity() {
+        const workingHourAndMinute = (time.values.working.hour * 60) + time.values.working.minute
+        let timeLost = (time.values.lost > workingHourAndMinute) ? workingHourAndMinute : time.values.lost;
         // Hours + minutes divided by productivity
-        const totalWorkingMinutes = ((time.values.working.hour * 60) + time.values.working.minute) / time.values.productivity;
+        const totalWorkingMinutes = (workingHourAndMinute - timeLost) / time.values.productivity;
   
         return {
           hour: Math.floor(totalWorkingMinutes / 60),
@@ -160,7 +163,7 @@ $(document).ready(function () {
       // Helper function to calculate clock-out time
       function calculateClockOut({ hour, minute }) {
         hour += time.values.clockIn.hour;
-        minute += time.values.clockIn.minute + time.values.lunch + time.values.meeting - time.values.lost;
+        minute += time.values.clockIn.minute + time.values.lunch + time.values.meeting;
   
         if (minute >= 60) {
           hour += Math.floor(minute / 60);
@@ -190,7 +193,7 @@ $(document).ready(function () {
         };
   
         // Helper to format the total working time
-        const formatTotalWorkingTime = ({ hour, minute }) => `${hour} hours ${minute} minutes at ${(time.values.productivity * 100)}% productivity`;
+        const formatTotalWorkingTime = ({ hour, minute }) => `${hour} hours ${minute} minutes at ${Math.floor(time.values.productivity * 100)}% productivity`;
   
         // Update the output based on whether clockOut and totalWorking are defined
         if (clockOut && totalWorking) {
@@ -202,18 +205,6 @@ $(document).ready(function () {
           totalTime.html("");
         }
       };
-  
-      $("#DarkModeToggle").click(() => {
-        const mainHTML = $("html");
-        const button = $(".btn");
-  
-        // Determine the new theme based on the current one
-        const newTheme = mainHTML.attr("data-bs-theme") === "light" ? "dark" : "light";
-  
-        // Update the theme attribute directly
-        mainHTML.attr("data-bs-theme", newTheme);
-        button.toggleClass("btn-outline-dark btn-outline-light");
-      });
   
       $("#Settings").click(() => {
         $("#SettingsArrow").toggleClass("bi-chevron-down bi-chevron-up");
